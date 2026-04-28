@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { useI18n } from "@/lib/i18n";
 
 // TODO: Replace these placeholder logos with real logo image files.
 // To swap a placeholder for a real logo, replace the rendered <span> inside
@@ -14,12 +15,13 @@ export const partners = [
 ];
 
 export function Partners() {
+  const { t } = useI18n();
   return (
     <section id="team" className="border-y border-border bg-secondary/40 py-20">
       <div className="mx-auto max-w-7xl px-4">
         <Reveal>
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Backed by leading institutions
+            {t("partners.eyebrow")}
           </p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -55,7 +57,7 @@ export function Partners() {
             ))}
           </div>
           <p className="mt-4 text-center text-[11px] uppercase tracking-wider text-muted-foreground/50">
-            Logo placeholders — replace with official artwork
+            {t("partners.placeholderNotice")}
           </p>
         </Reveal>
       </div>

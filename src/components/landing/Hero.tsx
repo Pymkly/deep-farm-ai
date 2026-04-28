@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-paddy.jpg";
 import { useState } from "react";
 import { VideoModal } from "./VideoModal";
+import { useI18n } from "@/lib/i18n";
 
 const partners: { name: string; url: string }[] = [
   { name: "Erasmus+", url: "https://erasmus-plus.ec.europa.eu" },
@@ -15,6 +16,7 @@ const partners: { name: string; url: string }[] = [
 
 export function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
+  const { t } = useI18n();
   return (
     <section id="top" className="relative -mt-16 min-h-[100svh] w-full overflow-hidden bg-ink text-white">
       <img
@@ -36,25 +38,24 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-white/80 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-earth" />
-            Open-source · Erasmus+ #101128032
+            {t("hero.badge")}
           </span>
           <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-            AI for Rice Farmers in Madagascar
+            {t("hero.title")}
           </h1>
           <p className="mt-6 max-w-2xl text-balance text-lg text-white/80 sm:text-xl">
-            An open-source, multi-agent digital tutor combining solar IoT and Agentic AI
-            to transform Malagasy rice farming.
+            {t("hero.subtitle")}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button asChild variant="hero" size="xl">
               <a href="#project">
-                Discover the project
+                {t("hero.cta.discover")}
                 <ArrowDown className="h-4 w-4" />
               </a>
             </Button>
             <Button variant="heroGhost" size="xl" onClick={() => setVideoOpen(true)}>
               <Play className="h-4 w-4" />
-              Watch the demo
+              {t("hero.cta.watch")}
             </Button>
           </div>
         </motion.div>
@@ -66,7 +67,7 @@ export function Hero() {
           className="mt-auto"
         >
           <div className="border-t border-white/15 pt-6">
-            <p className="text-xs uppercase tracking-[0.2em] text-white/50">In partnership with</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-white/50">{t("hero.partners")}</p>
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
               {partners.map((p) => (
                 <a

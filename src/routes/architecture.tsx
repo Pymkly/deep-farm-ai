@@ -13,7 +13,6 @@ import {
   Brain,
   Smartphone,
 } from "lucide-react";
-import { I18nProvider } from "@/lib/i18n";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Reveal } from "@/components/landing/Reveal";
@@ -96,7 +95,7 @@ const decisions = [
 
 function ArchitecturePage() {
   return (
-    <I18nProvider>
+    <>
       <Header />
       <main>
         {/* Hero */}
@@ -422,6 +421,6 @@ function ArchitecturePage() {
         </section>
       </main>
       <Footer />
-    </I18nProvider>
+    </>
   );
 }

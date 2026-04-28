@@ -1,49 +1,51 @@
 import { Sun, BrainCircuit, Smartphone } from "lucide-react";
 import { Reveal } from "./Reveal";
-
-const pillars = [
-  {
-    icon: Sun,
-    title: "Solar IoT Stations",
-    points: [
-      "12 autonomous solar stations",
-      "68-day battery life",
-      "NPK + water + climate sensors",
-      "~80€ per family",
-    ],
-  },
-  {
-    icon: BrainCircuit,
-    title: "Agentic AI Tutor",
-    points: [
-      "4 specialized agents (Document, Image, Time Series, Weather)",
-      "LangGraph orchestration",
-      "RAG on 42,000 ANAE pages",
-      "Open-source LLM",
-    ],
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile App",
-    points: [
-      "Photo → diagnosis in <1 minute",
-      "94% accuracy",
-      "Sources cited from local documents",
-      "Offline-first design",
-    ],
-  },
-];
+import { useI18n } from "@/lib/i18n";
 
 export function Solution() {
+  const { t } = useI18n();
+  const pillars = [
+    {
+      icon: Sun,
+      title: t("solution.iot.title"),
+      points: [
+        t("solution.iot.p1"),
+        t("solution.iot.p2"),
+        t("solution.iot.p3"),
+        t("solution.iot.p4"),
+      ],
+    },
+    {
+      icon: BrainCircuit,
+      title: t("solution.ai.title"),
+      points: [
+        t("solution.ai.p1"),
+        t("solution.ai.p2"),
+        t("solution.ai.p3"),
+        t("solution.ai.p4"),
+      ],
+    },
+    {
+      icon: Smartphone,
+      title: t("solution.app.title"),
+      points: [
+        t("solution.app.p1"),
+        t("solution.app.p2"),
+        t("solution.app.p3"),
+        t("solution.app.p4"),
+      ],
+    },
+  ];
+
   return (
     <section id="how" className="relative bg-primary-soft/40 py-24 sm:py-32">
       <div className="absolute inset-0 ring-grid opacity-50 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]" />
       <div className="relative mx-auto max-w-7xl px-4">
         <Reveal>
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-earth">Our Solution</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-earth">{t("solution.eyebrow")}</p>
             <h2 className="mt-3 text-balance text-3xl font-bold leading-tight sm:text-5xl">
-              Three layers, one digital tutor in every farmer's pocket.
+              {t("solution.title")}
             </h2>
           </div>
         </Reveal>

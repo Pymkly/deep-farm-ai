@@ -1,13 +1,25 @@
 import { Github, Linkedin, Twitter, Mail, Sprout } from "lucide-react";
 import { useI18n, type Locale } from "@/lib/i18n";
 
-const sections = [
-  ["The Project", "How It Works", "Impact", "Science & Tech", "Team", "News"],
-  ["GitHub", "Documentation", "Research papers", "Press kit", "Contact"],
-];
-
 export function Footer() {
-  const { locale, setLocale } = useI18n();
+  const { locale, setLocale, t } = useI18n();
+
+  const exploreLinks = [
+    "footer.link.project",
+    "footer.link.how",
+    "footer.link.impact",
+    "footer.link.science",
+    "footer.link.team",
+    "footer.link.news",
+  ];
+  const resourceLinks = [
+    "footer.link.github",
+    "footer.link.docs",
+    "footer.link.research",
+    "footer.link.press",
+    "footer.link.contact",
+  ];
+
   return (
     <footer id="contact" className="bg-ink text-ink-foreground">
       <div className="mx-auto max-w-7xl px-4 py-20">
@@ -20,8 +32,7 @@ export function Footer() {
               <span className="text-xl tracking-tight">Deep Farm</span>
             </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-              Open-source, multi-agent digital tutor for Malagasy rice farmers. Built with
-              ESTIA, IT University, UNIVA and ANAE — funded by Erasmus+.
+              {t("footer.tagline")}
             </p>
             <div className="mt-6 flex items-center gap-2">
               {[
@@ -43,10 +54,10 @@ export function Footer() {
           </div>
 
           <div className="grid grid-cols-2 gap-10 lg:col-span-2 lg:grid-cols-3">
-            <FooterCol title="Explore" items={sections[0]} />
-            <FooterCol title="Resources" items={sections[1]} />
+            <FooterCol title={t("footer.col.explore")} itemKeys={exploreLinks} />
+            <FooterCol title={t("footer.col.resources")} itemKeys={resourceLinks} />
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/50">Contact</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/50">{t("footer.col.contact")}</p>
               <ul className="mt-5 space-y-3 text-sm text-white/70">
                 <li>hello@deepfarm.org</li>
                 <li>ESTIA Bidart, France</li>
@@ -63,15 +74,13 @@ export function Footer() {
                 ★ EU
               </div>
               <p className="max-w-xl text-xs leading-relaxed text-white/55">
-                Co-funded by the European Union — Erasmus+ project #101128032. The views and
-                opinions expressed are however those of the author(s) only and do not
-                necessarily reflect those of the European Union.
+                {t("footer.eu")}
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-white/55">
               <span>© {new Date().getFullYear()} Deep Farm</span>
-              <a href="#" className="hover:text-white">Legal</a>
-              <a href="#" className="hover:text-white">Privacy</a>
+              <a href="#" className="hover:text-white">{t("footer.legal")}</a>
+              <a href="#" className="hover:text-white">{t("footer.privacy")}</a>
               <div className="flex items-center rounded-full border border-white/15 p-0.5">
                 {(["en", "fr"] as Locale[]).map((l) => (
                   <button
@@ -93,15 +102,16 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, items }: { title: string; items: string[] }) {
+function FooterCol({ title, itemKeys }: { title: string; itemKeys: string[] }) {
+  const { t } = useI18n();
   return (
     <div>
       <p className="text-xs font-semibold uppercase tracking-wider text-white/50">{title}</p>
       <ul className="mt-5 space-y-3 text-sm">
-        {items.map((i) => (
-          <li key={i}>
+        {itemKeys.map((key) => (
+          <li key={key}>
             <a href="#" className="text-white/70 hover:text-white">
-              {i}
+              {t(key)}
             </a>
           </li>
         ))}

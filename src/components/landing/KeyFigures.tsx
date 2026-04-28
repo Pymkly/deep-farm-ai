@@ -1,29 +1,30 @@
 import { Counter } from "./Counter";
 import { Reveal } from "./Reveal";
-
-const figures = [
-  { value: 94, suffix: "%", label: "Accuracy on disease detection" },
-  { value: 87, suffix: "", label: "Farmers tested the system" },
-  { value: 92, suffix: "%", label: "Satisfaction rate" },
-  { value: 42000, suffix: "", label: "ANAE pages vectorized" },
-  { value: 80, suffix: "€", label: "Total cost per family" },
-];
+import { useI18n } from "@/lib/i18n";
 
 export function KeyFigures() {
+  const { t } = useI18n();
+  const figures = [
+    { value: 94, suffix: "%", label: t("figures.accuracy") },
+    { value: 87, suffix: "", label: t("figures.farmers") },
+    { value: 92, suffix: "%", label: t("figures.satisfaction") },
+    { value: 42000, suffix: "", label: t("figures.pages") },
+    { value: 80, suffix: "€", label: t("figures.cost") },
+  ];
+
   return (
     <section id="impact" className="bg-ink py-20 text-ink-foreground sm:py-28">
       <div className="mx-auto max-w-7xl px-4">
         <Reveal>
           <div className="mb-14 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-earth">By the numbers</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-earth">{t("figures.eyebrow")}</p>
               <h2 className="mt-2 text-balance text-3xl font-bold sm:text-5xl">
-                Tangible impact, measured in the field.
+                {t("figures.title")}
               </h2>
             </div>
             <p className="max-w-md text-sm text-white/60">
-              Pilot results from 18 plots in Iarinarivo over the 2025 cropping season,
-              independently verified with ANAE protocols.
+              {t("figures.intro")}
             </p>
           </div>
         </Reveal>

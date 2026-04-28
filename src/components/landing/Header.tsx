@@ -101,7 +101,7 @@ export function Header() {
               scrolled ? "" : "bg-white/5 backdrop-blur"
             }`}
           >
-            <Link to="/login">Sign in</Link>
+            <Link to="/login">{t("header.signin")}</Link>
           </Button>
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <a href="#contact">{t("nav.contact")}</a>
@@ -133,7 +133,7 @@ export function Header() {
             ))}
             <Button asChild variant="outline" className="mt-2 border-sky text-sky">
               <Link to="/login" onClick={() => setMobileOpen(false)}>
-                Sign in
+                {t("header.signin")}
               </Link>
             </Button>
             <Button asChild className="mt-2">

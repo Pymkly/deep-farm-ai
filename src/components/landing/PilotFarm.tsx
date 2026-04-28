@@ -1,15 +1,16 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Button } from "@/components/ui/button";
-
-const stats = [
-  { v: "18", l: "plots monitored" },
-  { v: "2 ha", l: "active surface" },
-  { v: "12", l: "solar stations deployed" },
-  { v: "3", l: "regions covered" },
-];
+import { useI18n } from "@/lib/i18n";
 
 export function PilotFarm() {
+  const { t } = useI18n();
+  const stats = [
+    { v: "18", l: t("pilot.stat.plots") },
+    { v: "2 ha", l: t("pilot.stat.surface") },
+    { v: "12", l: t("pilot.stat.stations") },
+    { v: "3", l: t("pilot.stat.regions") },
+  ];
   return (
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4">
@@ -46,15 +47,13 @@ export function PilotFarm() {
 
           <Reveal delay={0.1}>
             <p className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-earth">
-              <MapPin className="h-3 w-3" /> Pilot Farm
+              <MapPin className="h-3 w-3" /> {t("pilot.eyebrow")}
             </p>
             <h2 className="mt-3 text-balance text-3xl font-bold leading-tight sm:text-5xl">
-              Live from our pilot farm in Iarinarivo, Madagascar.
+              {t("pilot.title")}
             </h2>
             <p className="mt-5 max-w-lg text-foreground/70">
-              Twelve solar IoT stations stream NPK, water-level, and microclimate data
-              every fifteen minutes — all of it feeding the same agentic system that
-              farmers query from their phones.
+              {t("pilot.body")}
             </p>
 
             <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border">
@@ -68,7 +67,7 @@ export function PilotFarm() {
 
             <div className="mt-8">
               <Button variant="default" size="lg">
-                Explore the project
+                {t("pilot.cta")}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
