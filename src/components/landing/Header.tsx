@@ -93,6 +93,16 @@ export function Header() {
               </button>
             ))}
           </div>
+          <Button
+            asChild
+            size="sm"
+            variant="outline"
+            className={`hidden sm:inline-flex border-sky text-sky hover:bg-sky hover:text-sky-foreground ${
+              scrolled ? "" : "bg-white/5 backdrop-blur"
+            }`}
+          >
+            <Link to="/login">Sign in</Link>
+          </Button>
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <a href="#contact">{t("nav.contact")}</a>
           </Button>
@@ -121,8 +131,15 @@ export function Header() {
                 {t(l.key)}
               </a>
             ))}
+            <Button asChild variant="outline" className="mt-2 border-sky text-sky">
+              <Link to="/login" onClick={() => setMobileOpen(false)}>
+                Sign in
+              </Link>
+            </Button>
             <Button asChild className="mt-2">
-              <a href="#contact">{t("nav.contact")}</a>
+              <a href="#contact" onClick={() => setMobileOpen(false)}>
+                {t("nav.contact")}
+              </a>
             </Button>
           </nav>
         </div>
