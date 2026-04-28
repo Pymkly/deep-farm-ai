@@ -32,12 +32,17 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-        <a href="#top" className="flex items-center gap-2 font-display font-bold text-primary">
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-primary text-primary-foreground">
-            <Sprout className="h-4 w-4" />
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        <a
+          href="#top"
+          className={`flex items-center gap-2 px-4 font-display font-bold transition-colors ${
+            scrolled ? "text-primary" : "text-white"
+          }`}
+        >
+          <span className="grid h-6 w-6 place-items-center rounded-md bg-primary text-primary-foreground">
+            <Sprout className="h-3 w-3" />
           </span>
-          <span className="text-lg tracking-tight">Deep Farm</span>
+          <span className="text-base tracking-tight">Deep Farm</span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-7">
@@ -45,7 +50,11 @@ export function Header() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                scrolled
+                  ? "text-foreground/70 hover:text-primary"
+                  : "text-white/85 hover:text-white"
+              }`}
             >
               {t(l.key)}
             </a>
@@ -53,13 +62,23 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden sm:flex items-center rounded-full border border-border bg-background/60 p-0.5 text-xs font-semibold">
+          <div
+            className={`hidden sm:flex items-center rounded-full border p-0.5 text-xs font-semibold transition-colors ${
+              scrolled
+                ? "border-border bg-background/60"
+                : "border-white/30 bg-white/10 backdrop-blur"
+            }`}
+          >
             {(["en", "fr"] as Locale[]).map((l) => (
               <button
                 key={l}
                 onClick={() => setLocale(l)}
                 className={`rounded-full px-2.5 py-1 transition-colors ${
-                  locale === l ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                  locale === l
+                    ? "bg-primary text-primary-foreground"
+                    : scrolled
+                      ? "text-muted-foreground hover:text-foreground"
+                      : "text-white/80 hover:text-white"
                 }`}
               >
                 {l.toUpperCase()}
@@ -70,7 +89,9 @@ export function Header() {
             <a href="#contact">{t("nav.contact")}</a>
           </Button>
           <button
-            className="lg:hidden p-2"
+            className={`lg:hidden p-2 transition-colors ${
+              scrolled ? "text-foreground" : "text-white"
+            }`}
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >
