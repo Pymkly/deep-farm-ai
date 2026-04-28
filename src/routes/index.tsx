@@ -6,6 +6,7 @@ import { Hero } from "@/components/landing/Hero";
 import { KeyFigures } from "@/components/landing/KeyFigures";
 import { Challenge } from "@/components/landing/Challenge";
 import { Solution } from "@/components/landing/Solution";
+import { SolarIoT } from "@/components/landing/SolarIoT";
 import { Demo } from "@/components/landing/Demo";
 import { PilotFarm } from "@/components/landing/PilotFarm";
 import { Partners } from "@/components/landing/Partners";
@@ -44,6 +45,7 @@ function Index() {
         <Challenge />
         <KeyFigures />
         <Solution />
+        <SolarIoT />
         <Demo />
         <PilotFarm />
         <Partners />
