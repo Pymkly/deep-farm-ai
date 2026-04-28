@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Play, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-paddy.jpg";
+import { siteImages } from "@/config/images";
 import { useState } from "react";
 import { VideoModal } from "./VideoModal";
 import { useI18n } from "@/lib/i18n";
@@ -20,10 +20,10 @@ export function Hero() {
   return (
     <section id="top" className="relative -mt-16 min-h-[100svh] w-full overflow-hidden bg-ink text-white">
       <img
-        src={heroImg}
+        src={siteImages.hero.src}
         alt="Rice paddies at sunrise in the highlands of Madagascar"
-        width={1920}
-        height={1080}
+        width={siteImages.hero.width}
+        height={siteImages.hero.height}
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/85" />

@@ -1,7 +1,7 @@
 import { Reveal } from "./Reveal";
 import { ArrowRight, Sprout, ThermometerSun, Waves, SunMedium } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import iotSystem from "@/assets/iot-system.jpg";
+import { siteImages } from "@/config/images";
 import { useI18n } from "@/lib/i18n";
 
 export function SolarIoT() {
@@ -70,10 +70,10 @@ export function SolarIoT() {
           <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-ink shadow-xl">
             <div className="relative aspect-[16/9] w-full">
               <img
-                src={iotSystem}
+                src={siteImages.solarIot.src}
                 alt={t("solar.imageAlt")}
-                width={1920}
-                height={1080}
+                width={siteImages.solarIot.width}
+                height={siteImages.solarIot.height}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />

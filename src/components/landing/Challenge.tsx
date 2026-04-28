@@ -1,5 +1,5 @@
 import { Reveal } from "./Reveal";
-import farmer from "@/assets/farmer-phone.jpg";
+import { siteImages } from "@/config/images";
 import { useI18n } from "@/lib/i18n";
 
 export function Challenge() {
@@ -44,10 +44,10 @@ export function Challenge() {
               <div className="absolute -inset-4 -z-10 rounded-3xl bg-primary/10 blur-2xl" />
               <div className="overflow-hidden rounded-2xl shadow-2xl shadow-primary/10">
                 <img
-                  src={farmer}
+                  src={siteImages.challenge.src}
                   alt={t("challenge.imageAlt")}
-                  width={1024}
-                  height={1024}
+                  width={siteImages.challenge.width}
+                  height={siteImages.challenge.height}
                   loading="lazy"
                   className="aspect-[4/5] w-full object-cover"
                 />
