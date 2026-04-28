@@ -5,7 +5,13 @@ import heroImg from "@/assets/hero-paddy.jpg";
 import { useState } from "react";
 import { VideoModal } from "./VideoModal";
 
-const partners = ["Erasmus+", "ESTIA", "IT University", "UNIVA", "ANAE"];
+const partners: { name: string; url: string }[] = [
+  { name: "Erasmus+", url: "https://erasmus-plus.ec.europa.eu" },
+  { name: "ESTIA", url: "https://www.estia.fr" },
+  { name: "IT University", url: "https://ituniversity.mg" },
+  { name: "UNIVA", url: "https://www.univa.mg" },
+  { name: "ANAE", url: "https://www.anae.mg" },
+];
 
 export function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
