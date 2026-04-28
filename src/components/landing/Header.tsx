@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Sprout } from "lucide-react";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { useI18n, type Locale } from "@/lib/i18n";
 
@@ -13,16 +14,23 @@ const links = [
 ];
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  // On non-home pages, always render the opaque/dark-text style.
+  const [scrolled, setScrolled] = useState(!isHome);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { locale, setLocale, t } = useI18n();
 
   useEffect(() => {
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <header
@@ -33,8 +41,8 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a
-          href="#top"
+        <Link
+          to="/"
           className={`flex items-center gap-2 px-4 font-display font-bold transition-colors ${
             scrolled ? "text-primary" : "text-white"
           }`}
@@ -43,7 +51,7 @@ export function Header() {
             <Sprout className="h-3 w-3" />
           </span>
           <span className="text-base tracking-tight">Deep Farm</span>
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
