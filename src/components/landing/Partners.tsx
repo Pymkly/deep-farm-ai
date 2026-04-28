@@ -32,12 +32,24 @@ export function Partners() {
                 rel="noopener noreferrer"
                 aria-label={`${p.name} (opens in new tab)`}
                 title={p.name}
-                /* PLACEHOLDER LOGO — replace inner <span> with <img> when real logos are available */
+                /* PLACEHOLDER LOGO — replace the inner <svg> block with <img src="/logos/xxx.svg" alt={p.name} /> */
                 data-logo-placeholder={p.name}
-                className="group grid h-20 place-items-center rounded-xl border border-border bg-background px-3 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
+                className="group relative grid h-20 place-items-center overflow-hidden rounded-xl border border-dashed border-border bg-background px-3 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md"
               >
-                <span className="font-display text-sm font-bold uppercase tracking-wide text-muted-foreground/70 grayscale transition-all group-hover:text-primary group-hover:grayscale-0 sm:text-base">
-                  {p.name}
+                <svg
+                  viewBox="0 0 120 48"
+                  className="h-10 w-auto text-muted-foreground/40 transition-colors group-hover:text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                  aria-hidden="true"
+                >
+                  <rect x="1" y="1" width="118" height="46" rx="6" />
+                  <line x1="1" y1="1" x2="119" y2="47" />
+                  <line x1="119" y1="1" x2="1" y2="47" />
+                </svg>
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 rounded bg-background/80 px-1.5 text-[9px] font-medium uppercase tracking-wider text-muted-foreground/60">
+                  Logo
                 </span>
               </a>
             ))}
