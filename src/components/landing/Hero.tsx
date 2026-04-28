@@ -5,7 +5,13 @@ import heroImg from "@/assets/hero-paddy.jpg";
 import { useState } from "react";
 import { VideoModal } from "./VideoModal";
 
-const partners = ["Erasmus+", "ESTIA", "IT University", "UNIVA", "ANAE"];
+const partners: { name: string; url: string }[] = [
+  { name: "Erasmus+", url: "https://erasmus-plus.ec.europa.eu" },
+  { name: "ESTIA", url: "https://www.estia.fr" },
+  { name: "IT University", url: "https://ituniversity.mg" },
+  { name: "UNIVA", url: "https://www.univa.mg" },
+  { name: "ANAE", url: "https://www.anae.mg" },
+];
 
 export function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -61,14 +67,19 @@ export function Hero() {
         >
           <div className="border-t border-white/15 pt-6">
             <p className="text-xs uppercase tracking-[0.2em] text-white/50">In partnership with</p>
-            <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
               {partners.map((p) => (
-                <span
-                  key={p}
-                  className="text-sm font-semibold text-white/85 sm:text-base"
+                <a
+                  key={p.name}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${p.name} (opens in new tab)`}
+                  data-logo-placeholder={p.name}
+                  className="rounded-md border border-white/20 bg-white/5 px-3 py-1.5 text-sm font-semibold text-white/85 backdrop-blur transition-all hover:border-white/50 hover:bg-white/10 hover:text-white sm:text-base"
                 >
-                  {p}
-                </span>
+                  {p.name}
+                </a>
               ))}
             </div>
           </div>
