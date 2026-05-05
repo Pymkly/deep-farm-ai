@@ -66,11 +66,6 @@ const en: Dict = {
   "figures.title": "Tangible impact, measured in the field.",
   "figures.intro":
     "Pilot results from 18 plots in Iarinarivo over the 2025 cropping season, independently verified with ANAE protocols.",
-  "figures.accuracy": "Accuracy on disease detection",
-  "figures.farmers": "Farmers tested the system",
-  "figures.satisfaction": "Satisfaction rate",
-  "figures.pages": "ANAE pages vectorized",
-  "figures.cost": "Total cost per family",
 
   // Solution
   "solution.eyebrow": "Our Solution",
@@ -266,11 +261,6 @@ const fr: Dict = {
   "figures.title": "Un impact tangible, mesuré sur le terrain.",
   "figures.intro":
     "Résultats du pilote sur 18 parcelles à Iarinarivo lors de la saison 2025, vérifiés indépendamment selon les protocoles de l'ANAE.",
-  "figures.accuracy": "Précision sur la détection des maladies",
-  "figures.farmers": "Riziculteurs ont testé le système",
-  "figures.satisfaction": "Taux de satisfaction",
-  "figures.pages": "Pages ANAE vectorisées",
-  "figures.cost": "Coût total par famille",
 
   // Solution
   "solution.eyebrow": "Notre solution",

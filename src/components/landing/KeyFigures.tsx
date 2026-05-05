@@ -1,16 +1,10 @@
 import { Counter } from "./Counter";
 import { Reveal } from "./Reveal";
 import { useI18n } from "@/lib/i18n";
+import { figures } from "@/config/figures";
 
 export function KeyFigures() {
-  const { t } = useI18n();
-  const figures = [
-    { value: 94, suffix: "%", label: t("figures.accuracy") },
-    { value: 87, suffix: "", label: t("figures.farmers") },
-    { value: 92, suffix: "%", label: t("figures.satisfaction") },
-    { value: 42000, suffix: "", label: t("figures.pages") },
-    { value: 80, suffix: "€", label: t("figures.cost") },
-  ];
+  const { locale, t } = useI18n();
 
   return (
     <section id="impact" className="bg-ink py-20 text-ink-foreground sm:py-28">
@@ -31,12 +25,12 @@ export function KeyFigures() {
 
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
           {figures.map((f, i) => (
-            <Reveal key={f.label} delay={i * 0.07} className="bg-ink">
+            <Reveal key={f.label.en} delay={i * 0.07} className="bg-ink">
               <div className="h-full p-6 sm:p-8">
                 <div className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
                   <Counter to={f.value} suffix={f.suffix} />
                 </div>
-                <p className="mt-3 text-sm leading-snug text-white/65">{f.label}</p>
+                <p className="mt-3 text-sm leading-snug text-white/65">{f.label[locale]}</p>
               </div>
             </Reveal>
           ))}
