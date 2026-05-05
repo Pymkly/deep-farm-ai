@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { siteImages } from "@/config/images";
 import { useState } from "react";
 import { VideoModal } from "./VideoModal";
+import { EventCard } from "./EventCard";
 import { useI18n } from "@/lib/i18n";
 
 const partners: { name: string; url: string }[] = [
@@ -28,6 +29,12 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/85" />
       <div className="absolute inset-0 grain opacity-30 mix-blend-overlay" />
+
+      <div className="pointer-events-none absolute inset-x-0 top-40 z-20 hidden lg:block">
+        <div className="mx-auto max-w-7xl px-4">
+          <EventCard />
+        </div>
+      </div>
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col px-4 pb-16 pt-32 sm:pt-40">
         <motion.div

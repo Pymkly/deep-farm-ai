@@ -27,6 +27,8 @@ const en: Dict = {
   "announcement.text":
     "Deep Farm will be presented at the 1st Indian Ocean AI Summit — May 28–29, 2026, Antananarivo",
   "announcement.boldFragment": "1st Indian Ocean AI Summit",
+  "announcement.eyebrow": "Featured at",
+  "announcement.date": "Antananarivo · May 28–29, 2026",
   "announcement.learnMore": "Learn more",
   "announcement.dismiss": "Dismiss announcement",
 
@@ -305,6 +307,8 @@ const fr: Dict = {
   "announcement.text":
     "Deep Farm sera présenté au 1er Sommet IA de l'océan Indien — 28–29 mai 2026, Antananarivo",
   "announcement.boldFragment": "1er Sommet IA de l'océan Indien",
+  "announcement.eyebrow": "À l'affiche",
+  "announcement.date": "Antananarivo · 28–29 mai 2026",
   "announcement.learnMore": "En savoir plus",
   "announcement.dismiss": "Fermer l'annonce",
 
