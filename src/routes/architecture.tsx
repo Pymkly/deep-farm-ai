@@ -17,6 +17,7 @@ import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Reveal } from "@/components/landing/Reveal";
 import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/architecture")({
   head: () => ({
@@ -41,59 +42,91 @@ export const Route = createFileRoute("/architecture")({
   component: ArchitecturePage,
 });
 
-const agents = [
-  {
-    icon: FileText,
-    name: "Document Agent",
-    detail:
-      "RAG over 42,000 ANAE pages using nomic-embed-text-v1.5 embeddings.",
-    accent: "primary" as const,
-  },
-  {
-    icon: ImageIcon,
-    name: "Image Agent",
-    detail:
-      "Vector similarity search using nomic-embed-vision-v1.5 (94% accuracy on rice diseases).",
-    accent: "sky" as const,
-  },
-  {
-    icon: LineChart,
-    name: "Time Series Agent",
-    detail: "Analyzes sensor data from MongoDB time-series collections.",
-    accent: "sky" as const,
-  },
-  {
-    icon: CloudSun,
-    name: "Weather Agent",
-    detail: "Connects to OpenMeteo API for forecasts.",
-    accent: "primary" as const,
-  },
-];
-
-const decisions = [
-  {
-    q: "Why vector search over CNN classification?",
-    a: "A fine-tuned CNN locks the model into a closed set of classes and demands re-training every time a new disease appears. Vector similarity over an embeddings index lets us add new reference images on the fly, return ranked similar cases, and explain results — closer to how an agronomist actually reasons.",
-  },
-  {
-    q: "Why LangGraph for orchestration?",
-    a: "Farming questions rarely fit a single tool. LangGraph models the supervisor + specialist agents as a typed state graph, with explicit routing, retries, and observability. It is production-grade where ad-hoc chains break.",
-  },
-  {
-    q: "Why Milvus as vector DB?",
-    a: "Milvus scales horizontally, supports hybrid (dense + sparse) search, and runs fine on a single modest VM for the pilot — then clusters when we onboard more cooperatives. Open-source and battle-tested.",
-  },
-  {
-    q: "Why DeepSeek as LLM?",
-    a: "DeepSeek delivers GPT-4-class reasoning at a fraction of the cost, with permissive licensing. Critical when you serve smallholder farmers and every query has to stay under a few cents.",
-  },
-  {
-    q: "Why MCP for interoperability?",
-    a: "The Model Context Protocol exposes Deep Farm's agents as standard tools. Any MCP-compatible client — mobile app, web platform, future partner integrations — talks to the same backend without bespoke glue code.",
-  },
-];
-
 function ArchitecturePage() {
+  const { t } = useI18n();
+
+  const layers = [
+    {
+      label: t("arch.layer.iot"),
+      icon: Cpu,
+      accent: "primary" as const,
+      items: [
+        t("arch.layer.iot.1"),
+        t("arch.layer.iot.2"),
+        t("arch.layer.iot.3"),
+        t("arch.layer.iot.4"),
+      ],
+    },
+    {
+      label: t("arch.layer.backend"),
+      icon: Database,
+      accent: "sky" as const,
+      items: [
+        t("arch.layer.backend.1"),
+        t("arch.layer.backend.2"),
+        t("arch.layer.backend.3"),
+        t("arch.layer.backend.4"),
+      ],
+    },
+    {
+      label: t("arch.layer.ai"),
+      icon: Brain,
+      accent: "primary" as const,
+      items: [
+        t("arch.layer.ai.1"),
+        t("arch.layer.ai.2"),
+        t("arch.layer.ai.3"),
+        t("arch.layer.ai.4"),
+      ],
+    },
+    {
+      label: t("arch.layer.ui"),
+      icon: Smartphone,
+      accent: "sky" as const,
+      items: [
+        t("arch.layer.ui.1"),
+        t("arch.layer.ui.2"),
+        t("arch.layer.ui.3"),
+        t("arch.layer.ui.4"),
+      ],
+    },
+  ];
+
+  const agents = [
+    {
+      icon: FileText,
+      name: t("arch.agent.doc.name"),
+      detail: t("arch.agent.doc.detail"),
+      accent: "primary" as const,
+    },
+    {
+      icon: ImageIcon,
+      name: t("arch.agent.image.name"),
+      detail: t("arch.agent.image.detail"),
+      accent: "sky" as const,
+    },
+    {
+      icon: LineChart,
+      name: t("arch.agent.timeseries.name"),
+      detail: t("arch.agent.timeseries.detail"),
+      accent: "sky" as const,
+    },
+    {
+      icon: CloudSun,
+      name: t("arch.agent.weather.name"),
+      detail: t("arch.agent.weather.detail"),
+      accent: "primary" as const,
+    },
+  ];
+
+  const decisions = [
+    { q: t("arch.decision.cnn.q"), a: t("arch.decision.cnn.a") },
+    { q: t("arch.decision.langgraph.q"), a: t("arch.decision.langgraph.a") },
+    { q: t("arch.decision.milvus.q"), a: t("arch.decision.milvus.a") },
+    { q: t("arch.decision.deepseek.q"), a: t("arch.decision.deepseek.a") },
+    { q: t("arch.decision.mcp.q"), a: t("arch.decision.mcp.a") },
+  ];
+
   return (
     <>
       <Header />
@@ -105,18 +138,16 @@ function ArchitecturePage() {
               to="/"
               className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
-              <ArrowLeft className="h-4 w-4" /> Back to home
+              <ArrowLeft className="h-4 w-4" /> {t("arch.back")}
             </Link>
             <p className="mt-10 text-xs uppercase tracking-[0.2em] text-sky">
-              Technical deep-dive
+              {t("arch.eyebrow")}
             </p>
             <h1 className="mt-3 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
-              How Deep Farm works — Architecture
+              {t("arch.title")}
             </h1>
             <p className="mt-6 max-w-2xl text-balance text-lg text-muted-foreground">
-              Deep Farm combines solar-powered IoT, vector search, and a
-              multi-agent AI system to deliver personalized rice-farming advice
-              in under one minute. Here&apos;s how the pieces fit together.
+              {t("arch.intro")}
             </p>
           </div>
         </section>
@@ -126,63 +157,18 @@ function ArchitecturePage() {
           <div className="mx-auto max-w-6xl px-6">
             <Reveal>
               <p className="text-xs uppercase tracking-[0.2em] text-primary">
-                The full picture
+                {t("arch.pipeline.eyebrow")}
               </p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                Four layers, one pipeline
+                {t("arch.pipeline.title")}
               </h2>
             </Reveal>
 
             <Reveal delay={0.1}>
               <div className="mt-12 grid gap-4 lg:grid-cols-4">
-                {[
-                  {
-                    label: "IoT layer",
-                    icon: Cpu,
-                    accent: "primary",
-                    items: [
-                      "Solar stations",
-                      "Arduino Mega",
-                      "ESP-01S Wi-Fi",
-                      "Raspberry Pi hub",
-                    ],
-                  },
-                  {
-                    label: "Backend layer",
-                    icon: Database,
-                    accent: "sky",
-                    items: [
-                      "FastAPI gateway",
-                      "MongoDB time-series",
-                      "Milvus vectors",
-                      "PostgreSQL metadata",
-                    ],
-                  },
-                  {
-                    label: "AI layer",
-                    icon: Brain,
-                    accent: "primary",
-                    items: [
-                      "LangGraph supervisor",
-                      "4 specialist agents",
-                      "DeepSeek LLM",
-                      "Tool routing & retries",
-                    ],
-                  },
-                  {
-                    label: "Interface layer",
-                    icon: Smartphone,
-                    accent: "sky",
-                    items: [
-                      "Mobile app (offline-first)",
-                      "Web platform",
-                      "MCP protocol",
-                      "Cooperative dashboards",
-                    ],
-                  },
-                ].map((layer, i, arr) => {
+                {layers.map((layer, i, arr) => {
                   const Icon = layer.icon;
                   const isPrimary = layer.accent === "primary";
                   return (
@@ -251,12 +237,12 @@ function ArchitecturePage() {
           <div className="mx-auto max-w-6xl px-6">
             <Reveal>
               <p className="text-xs uppercase tracking-[0.2em] text-sky">
-                The crew
+                {t("arch.agents.eyebrow")}
               </p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                The four agents
+                {t("arch.agents.title")}
               </h2>
             </Reveal>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -300,12 +286,12 @@ function ArchitecturePage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <p className="text-xs uppercase tracking-[0.2em] text-sky">
-                Trade-offs
+                {t("arch.decisions.eyebrow")}
               </p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                Why these technology choices?
+                {t("arch.decisions.title")}
               </h2>
             </Reveal>
             <div className="mt-12 divide-y divide-border rounded-2xl border border-border bg-card">
@@ -330,38 +316,36 @@ function ArchitecturePage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <p className="text-xs uppercase tracking-[0.2em] text-primary">
-                Built in the open
+                {t("arch.os.eyebrow")}
               </p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                Open-source &amp; reproducible
+                {t("arch.os.title")}
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 <div className="rounded-2xl border border-border bg-card p-6">
                   <p className="text-xs font-semibold uppercase tracking-wider text-sky">
-                    License
+                    {t("arch.os.license.label")}
                   </p>
                   <p className="mt-3 font-display text-2xl font-bold tracking-tight">
-                    MIT
+                    {t("arch.os.license.value")}
                   </p>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Fully open-source. Fork it, ship it, adapt it to your
-                    cooperative.
+                    {t("arch.os.license.desc")}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-6">
                   <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                    Operating cost
+                    {t("arch.os.cost.label")}
                   </p>
                   <p className="mt-3 font-display text-2xl font-bold tracking-tight">
-                    &lt; $20 / month
+                    {t("arch.os.cost.value")}
                   </p>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Less than $20 per month to run the full platform for 100
-                    farms.
+                    {t("arch.os.cost.desc")}
                   </p>
                 </div>
               </div>
@@ -375,7 +359,7 @@ function ArchitecturePage() {
                     rel="noopener noreferrer"
                   >
                     <Github className="h-4 w-4" />
-                    Browse the code on GitHub
+                    {t("arch.os.cta")}
                   </a>
                 </Button>
               </div>
@@ -388,13 +372,12 @@ function ArchitecturePage() {
           <div className="mx-auto max-w-4xl px-6 text-center">
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
-                Want to fork it or collaborate?
+                {t("arch.cta.title")}
               </h2>
             </Reveal>
             <Reveal delay={0.05}>
               <p className="mx-auto mt-5 max-w-xl text-balance text-lg text-white/70">
-                Deep Farm is built with and for the agricultural community.
-                Researchers, engineers, NGOs and cooperatives are all welcome.
+                {t("arch.cta.intro")}
               </p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -412,7 +395,7 @@ function ArchitecturePage() {
                 <Button asChild variant="outline" size="xl" className="border-white/30 bg-white/5 text-white hover:bg-white hover:text-ink">
                   <Link to="/" hash="contact">
                     <Mail className="h-4 w-4" />
-                    Contact us
+                    {t("arch.cta.contact")}
                   </Link>
                 </Button>
               </div>

@@ -204,6 +204,90 @@ const en: Dict = {
     "Co-funded by the European Union — Erasmus+ project #101128032. The views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union.",
   "footer.legal": "Legal",
   "footer.privacy": "Privacy",
+
+  // Architecture page — Hero
+  "arch.back": "Back to home",
+  "arch.eyebrow": "Technical deep-dive",
+  "arch.title": "How Deep Farm works — Architecture",
+  "arch.intro":
+    "Deep Farm combines solar-powered IoT, vector search, and a multi-agent AI system to deliver personalized rice-farming advice in under one minute. Here's how the pieces fit together.",
+
+  // Architecture page — Pipeline
+  "arch.pipeline.eyebrow": "The full picture",
+  "arch.pipeline.title": "Four layers, one pipeline",
+  "arch.layer.iot": "IoT layer",
+  "arch.layer.iot.1": "Solar stations",
+  "arch.layer.iot.2": "Arduino Mega",
+  "arch.layer.iot.3": "ESP-01S Wi-Fi",
+  "arch.layer.iot.4": "Raspberry Pi hub",
+  "arch.layer.backend": "Backend layer",
+  "arch.layer.backend.1": "FastAPI gateway",
+  "arch.layer.backend.2": "MongoDB time-series",
+  "arch.layer.backend.3": "Milvus vectors",
+  "arch.layer.backend.4": "PostgreSQL metadata",
+  "arch.layer.ai": "AI layer",
+  "arch.layer.ai.1": "LangGraph supervisor",
+  "arch.layer.ai.2": "4 specialist agents",
+  "arch.layer.ai.3": "DeepSeek LLM",
+  "arch.layer.ai.4": "Tool routing & retries",
+  "arch.layer.ui": "Interface layer",
+  "arch.layer.ui.1": "Mobile app (offline-first)",
+  "arch.layer.ui.2": "Web platform",
+  "arch.layer.ui.3": "MCP protocol",
+  "arch.layer.ui.4": "Cooperative dashboards",
+
+  // Architecture page — Agents
+  "arch.agents.eyebrow": "The crew",
+  "arch.agents.title": "The four agents",
+  "arch.agent.doc.name": "Document Agent",
+  "arch.agent.doc.detail":
+    "RAG over 42,000 ANAE pages using nomic-embed-text-v1.5 embeddings.",
+  "arch.agent.image.name": "Image Agent",
+  "arch.agent.image.detail":
+    "Vector similarity search using nomic-embed-vision-v1.5 (94% accuracy on rice diseases).",
+  "arch.agent.timeseries.name": "Time Series Agent",
+  "arch.agent.timeseries.detail":
+    "Analyzes sensor data from MongoDB time-series collections.",
+  "arch.agent.weather.name": "Weather Agent",
+  "arch.agent.weather.detail": "Connects to OpenMeteo API for forecasts.",
+
+  // Architecture page — Decisions
+  "arch.decisions.eyebrow": "Trade-offs",
+  "arch.decisions.title": "Why these technology choices?",
+  "arch.decision.cnn.q": "Why vector search over CNN classification?",
+  "arch.decision.cnn.a":
+    "A fine-tuned CNN locks the model into a closed set of classes and demands re-training every time a new disease appears. Vector similarity over an embeddings index lets us add new reference images on the fly, return ranked similar cases, and explain results — closer to how an agronomist actually reasons.",
+  "arch.decision.langgraph.q": "Why LangGraph for orchestration?",
+  "arch.decision.langgraph.a":
+    "Farming questions rarely fit a single tool. LangGraph models the supervisor + specialist agents as a typed state graph, with explicit routing, retries, and observability. It is production-grade where ad-hoc chains break.",
+  "arch.decision.milvus.q": "Why Milvus as vector DB?",
+  "arch.decision.milvus.a":
+    "Milvus scales horizontally, supports hybrid (dense + sparse) search, and runs fine on a single modest VM for the pilot — then clusters when we onboard more cooperatives. Open-source and battle-tested.",
+  "arch.decision.deepseek.q": "Why DeepSeek as LLM?",
+  "arch.decision.deepseek.a":
+    "DeepSeek delivers GPT-4-class reasoning at a fraction of the cost, with permissive licensing. Critical when you serve smallholder farmers and every query has to stay under a few cents.",
+  "arch.decision.mcp.q": "Why MCP for interoperability?",
+  "arch.decision.mcp.a":
+    "The Model Context Protocol exposes Deep Farm's agents as standard tools. Any MCP-compatible client — mobile app, web platform, future partner integrations — talks to the same backend without bespoke glue code.",
+
+  // Architecture page — Open source
+  "arch.os.eyebrow": "Built in the open",
+  "arch.os.title": "Open-source & reproducible",
+  "arch.os.license.label": "License",
+  "arch.os.license.value": "MIT",
+  "arch.os.license.desc":
+    "Fully open-source. Fork it, ship it, adapt it to your cooperative.",
+  "arch.os.cost.label": "Operating cost",
+  "arch.os.cost.value": "< $20 / month",
+  "arch.os.cost.desc":
+    "Less than $20 per month to run the full platform for 100 farms.",
+  "arch.os.cta": "Browse the code on GitHub",
+
+  // Architecture page — Final CTA
+  "arch.cta.title": "Want to fork it or collaborate?",
+  "arch.cta.intro":
+    "Deep Farm is built with and for the agricultural community. Researchers, engineers, NGOs and cooperatives are all welcome.",
+  "arch.cta.contact": "Contact us",
 };
 
 const fr: Dict = {
@@ -401,6 +485,92 @@ const fr: Dict = {
     "Cofinancé par l'Union européenne — projet Erasmus+ #101128032. Les opinions exprimées n'engagent toutefois que leurs auteurs et ne reflètent pas nécessairement celles de l'Union européenne.",
   "footer.legal": "Mentions légales",
   "footer.privacy": "Confidentialité",
+
+  // Architecture page — Hero
+  "arch.back": "Retour à l'accueil",
+  "arch.eyebrow": "Plongée technique",
+  "arch.title": "Comment fonctionne Deep Farm — Architecture",
+  "arch.intro":
+    "Deep Farm associe l'IoT solaire, la recherche vectorielle et un système d'IA multi-agent pour livrer des conseils de riziculture personnalisés en moins d'une minute. Voici comment les pièces s'imbriquent.",
+
+  // Architecture page — Pipeline
+  "arch.pipeline.eyebrow": "Vue d'ensemble",
+  "arch.pipeline.title": "Quatre couches, un pipeline",
+  "arch.layer.iot": "Couche IoT",
+  "arch.layer.iot.1": "Stations solaires",
+  "arch.layer.iot.2": "Arduino Mega",
+  "arch.layer.iot.3": "ESP-01S Wi-Fi",
+  "arch.layer.iot.4": "Hub Raspberry Pi",
+  "arch.layer.backend": "Couche backend",
+  "arch.layer.backend.1": "Passerelle FastAPI",
+  "arch.layer.backend.2": "MongoDB time-series",
+  "arch.layer.backend.3": "Vecteurs Milvus",
+  "arch.layer.backend.4": "Métadonnées PostgreSQL",
+  "arch.layer.ai": "Couche IA",
+  "arch.layer.ai.1": "Superviseur LangGraph",
+  "arch.layer.ai.2": "4 agents spécialisés",
+  "arch.layer.ai.3": "LLM DeepSeek",
+  "arch.layer.ai.4": "Routage d'outils & relances",
+  "arch.layer.ui": "Couche interface",
+  "arch.layer.ui.1": "App mobile (offline-first)",
+  "arch.layer.ui.2": "Plateforme web",
+  "arch.layer.ui.3": "Protocole MCP",
+  "arch.layer.ui.4": "Tableaux de bord coopératives",
+
+  // Architecture page — Agents
+  "arch.agents.eyebrow": "L'équipe",
+  "arch.agents.title": "Les quatre agents",
+  "arch.agent.doc.name": "Agent Documents",
+  "arch.agent.doc.detail":
+    "RAG sur 42 000 pages ANAE via les embeddings nomic-embed-text-v1.5.",
+  "arch.agent.image.name": "Agent Images",
+  "arch.agent.image.detail":
+    "Recherche par similarité vectorielle via nomic-embed-vision-v1.5 (94 % de précision sur les maladies du riz).",
+  "arch.agent.timeseries.name": "Agent Séries temporelles",
+  "arch.agent.timeseries.detail":
+    "Analyse les données capteurs depuis les collections time-series MongoDB.",
+  "arch.agent.weather.name": "Agent Météo",
+  "arch.agent.weather.detail":
+    "Se connecte à l'API OpenMeteo pour les prévisions.",
+
+  // Architecture page — Decisions
+  "arch.decisions.eyebrow": "Compromis",
+  "arch.decisions.title": "Pourquoi ces choix technologiques ?",
+  "arch.decision.cnn.q":
+    "Pourquoi la recherche vectorielle plutôt qu'une classification CNN ?",
+  "arch.decision.cnn.a":
+    "Un CNN finetuné enferme le modèle dans un ensemble fermé de classes et impose un ré-entraînement à chaque nouvelle maladie. La similarité vectorielle sur un index d'embeddings nous permet d'ajouter de nouvelles images de référence à la volée, de retourner des cas similaires classés et d'expliquer les résultats — plus proche de la façon dont un agronome raisonne.",
+  "arch.decision.langgraph.q": "Pourquoi LangGraph pour l'orchestration ?",
+  "arch.decision.langgraph.a":
+    "Les questions agricoles entrent rarement dans le moule d'un seul outil. LangGraph modélise le superviseur + les agents spécialisés comme un graphe d'état typé, avec routage explicite, relances et observabilité. C'est de niveau production là où les chaînes ad-hoc cassent.",
+  "arch.decision.milvus.q": "Pourquoi Milvus comme base vectorielle ?",
+  "arch.decision.milvus.a":
+    "Milvus passe à l'échelle horizontalement, supporte la recherche hybride (dense + sparse) et tourne très bien sur une simple VM modeste pour le pilote — puis se cluster quand on intègre plus de coopératives. Open-source et éprouvé.",
+  "arch.decision.deepseek.q": "Pourquoi DeepSeek comme LLM ?",
+  "arch.decision.deepseek.a":
+    "DeepSeek offre un raisonnement de niveau GPT-4 à une fraction du coût, avec une licence permissive. Critique quand on sert des petits exploitants et que chaque requête doit rester sous quelques centimes.",
+  "arch.decision.mcp.q": "Pourquoi MCP pour l'interopérabilité ?",
+  "arch.decision.mcp.a":
+    "Le Model Context Protocol expose les agents Deep Farm comme des outils standards. N'importe quel client compatible MCP — app mobile, plateforme web, futures intégrations partenaires — parle au même backend sans glue spécifique.",
+
+  // Architecture page — Open source
+  "arch.os.eyebrow": "Construit ouvertement",
+  "arch.os.title": "Open-source & reproductible",
+  "arch.os.license.label": "Licence",
+  "arch.os.license.value": "MIT",
+  "arch.os.license.desc":
+    "Entièrement open-source. Forke, déploie, adapte-le à ta coopérative.",
+  "arch.os.cost.label": "Coût d'exploitation",
+  "arch.os.cost.value": "< 20 $ / mois",
+  "arch.os.cost.desc":
+    "Moins de 20 $ par mois pour faire tourner toute la plateforme pour 100 fermes.",
+  "arch.os.cta": "Voir le code sur GitHub",
+
+  // Architecture page — Final CTA
+  "arch.cta.title": "Envie de forker ou de collaborer ?",
+  "arch.cta.intro":
+    "Deep Farm est construit avec et pour la communauté agricole. Chercheurs, ingénieurs, ONG et coopératives sont les bienvenus.",
+  "arch.cta.contact": "Nous contacter",
 };
 
 const DICTS: Record<Locale, Dict> = { en, fr };
