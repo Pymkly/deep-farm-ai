@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Play, ArrowDown } from "lucide-react";
+import { Play, ArrowDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteImages } from "@/config/images";
 import { useState } from "react";
@@ -47,6 +47,18 @@ export function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-earth" />
             {t("hero.badge")}
           </span>
+          <a
+            href="#ioai"
+            aria-label={t("announcement.text")}
+            className="group mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md transition-all hover:border-primary/50 hover:bg-primary/25 lg:hidden"
+          >
+            <span className="relative flex h-1.5 w-1.5 shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+            </span>
+            <span>{t("announcement.boldFragment")}</span>
+            <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+          </a>
           <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             {t("hero.title")}
           </h1>
