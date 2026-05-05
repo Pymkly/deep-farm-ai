@@ -97,8 +97,10 @@ export function Header() {
             asChild
             size="sm"
             variant="outline"
-            className={`hidden sm:inline-flex border-sky text-sky hover:bg-sky hover:text-sky-foreground ${
-              scrolled ? "" : "bg-white/5 backdrop-blur"
+            className={`hidden sm:inline-flex ${
+              scrolled
+                ? ""
+                : "border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 hover:text-white"
             }`}
           >
             <Link to="/login">{t("header.signin")}</Link>
@@ -131,7 +133,7 @@ export function Header() {
                 {t(l.key)}
               </a>
             ))}
-            <Button asChild variant="outline" className="mt-2 border-sky text-sky">
+            <Button asChild variant="outline" className="mt-2">
               <Link to="/login" onClick={() => setMobileOpen(false)}>
                 {t("header.signin")}
               </Link>

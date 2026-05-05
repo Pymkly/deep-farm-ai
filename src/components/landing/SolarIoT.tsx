@@ -1,6 +1,7 @@
 import { Reveal } from "./Reveal";
 import { ArrowRight, Sprout, ThermometerSun, Waves, SunMedium } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 import { siteImages } from "@/config/images";
 import { useI18n } from "@/lib/i18n";
 
@@ -130,13 +131,12 @@ export function SolarIoT() {
 
         <Reveal delay={0.2}>
           <div className="mt-14 flex justify-center">
-            <Link
-              to="/architecture"
-              className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-md"
-            >
-              {t("solar.cta")}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <Button asChild variant="outline" size="lg" className="group">
+              <Link to="/architecture">
+                {t("solar.cta")}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </div>
         </Reveal>
       </div>
