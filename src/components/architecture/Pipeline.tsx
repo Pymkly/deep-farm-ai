@@ -53,7 +53,7 @@ export function Pipeline() {
   ];
 
   return (
-    <section className="bg-ink py-24 text-ink-foreground sm:py-32">
+    <section id="pipeline" className="bg-ink py-24 text-ink-foreground sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.2em] text-primary">

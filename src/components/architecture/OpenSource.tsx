@@ -7,7 +7,7 @@ export function OpenSource() {
   const { t } = useI18n();
 
   return (
-    <section className="bg-background py-24 sm:py-32">
+    <section id="opensource" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-6">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.2em] text-primary">

@@ -13,7 +13,7 @@ export function Decisions() {
   ];
 
   return (
-    <section className="border-y border-border bg-secondary/40 py-24 sm:py-32">
+    <section id="decisions" className="border-y border-border bg-secondary/40 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-6">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.2em] text-sky">

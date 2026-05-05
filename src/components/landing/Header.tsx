@@ -3,19 +3,12 @@ import { Menu, X, Sprout } from "lucide-react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { useI18n, type Locale } from "@/lib/i18n";
-
-const links = [
-  { href: "#project", key: "nav.project" },
-  { href: "#how", key: "nav.how" },
-  { href: "#impact", key: "nav.impact" },
-  { href: "#science", key: "nav.science" },
-  { href: "#team", key: "nav.team" },
-  { href: "#news", key: "nav.news" },
-];
+import { navByPath, defaultNavLinks } from "@/config/nav";
 
 export function Header() {
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const links = navByPath[location.pathname] ?? defaultNavLinks;
   // On non-home pages, always render the opaque/dark-text style.
   const [scrolled, setScrolled] = useState(!isHome);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -56,8 +49,8 @@ export function Header() {
         <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <a
-              key={l.href}
-              href={l.href}
+              key={l.hash}
+              href={`#${l.hash}`}
               className={`text-sm font-medium transition-colors ${
                 scrolled
                   ? "text-foreground/70 hover:text-primary"
@@ -106,7 +99,7 @@ export function Header() {
             <Link to="/login">{t("header.signin")}</Link>
           </Button>
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <a href="#contact">{t("nav.contact")}</a>
+            <Link to="/" hash="contact">{t("nav.contact")}</Link>
           </Button>
           <button
             className={`lg:hidden p-2 transition-colors ${
@@ -125,8 +118,8 @@ export function Header() {
           <nav className="flex flex-col px-4 py-3">
             {links.map((l) => (
               <a
-                key={l.href}
-                href={l.href}
+                key={l.hash}
+                href={`#${l.hash}`}
                 onClick={() => setMobileOpen(false)}
                 className="py-2.5 text-sm font-medium text-foreground/80"
               >
@@ -139,9 +132,9 @@ export function Header() {
               </Link>
             </Button>
             <Button asChild className="mt-2">
-              <a href="#contact" onClick={() => setMobileOpen(false)}>
+              <Link to="/" hash="contact" onClick={() => setMobileOpen(false)}>
                 {t("nav.contact")}
-              </a>
+              </Link>
             </Button>
           </nav>
         </div>

@@ -17,10 +17,15 @@ const en: Dict = {
   "nav.project": "The Project",
   "nav.how": "How It Works",
   "nav.impact": "Impact",
+  "nav.iot": "Solar IoT",
   "nav.science": "Science & Tech",
   "nav.team": "Team",
   "nav.news": "News",
   "nav.contact": "Contact",
+  "nav.arch.pipeline": "Pipeline",
+  "nav.arch.agents": "The four agents",
+  "nav.arch.decisions": "Trade-offs",
+  "nav.arch.opensource": "Open source",
   "header.signin": "Sign in",
 
   // Announcement bar
@@ -297,10 +302,15 @@ const fr: Dict = {
   "nav.project": "Le Projet",
   "nav.how": "Fonctionnement",
   "nav.impact": "Impact",
+  "nav.iot": "IoT solaire",
   "nav.science": "Science & Tech",
   "nav.team": "Équipe",
   "nav.news": "Actualités",
   "nav.contact": "Contact",
+  "nav.arch.pipeline": "Pipeline",
+  "nav.arch.agents": "Les quatre agents",
+  "nav.arch.decisions": "Compromis",
+  "nav.arch.opensource": "Open source",
   "header.signin": "Connexion",
 
   // Announcement bar

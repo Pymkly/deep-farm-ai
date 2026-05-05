@@ -33,7 +33,7 @@ export function Agents() {
   ];
 
   return (
-    <section className="bg-background py-24 sm:py-32">
+    <section id="agents" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.2em] text-sky">
