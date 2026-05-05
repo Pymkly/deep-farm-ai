@@ -101,7 +101,7 @@ export function SolarIoT() {
             const isPrimary = c.accent === "primary";
             return (
               <Reveal key={c.name} delay={0.05 * i}>
-                <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
                   <div
                     className={`absolute inset-x-0 top-0 h-0.5 ${
                       isPrimary ? "bg-primary" : "bg-sky"

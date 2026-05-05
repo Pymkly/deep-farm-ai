@@ -48,7 +48,7 @@ export function GetInvolved() {
             <Reveal key={it.title} delay={i * 0.1}>
               <a
                 href={it.href}
-                className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10"
+                className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10"
               >
                 <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary-soft text-primary">
                   <it.icon className="h-5 w-5" />
