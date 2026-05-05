@@ -173,7 +173,7 @@ function ArchitecturePage() {
                   const isPrimary = layer.accent === "primary";
                   return (
                     <div key={layer.label} className="relative">
-                      <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur">
+                      <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white/[0.05] hover:shadow-xl hover:shadow-primary/10">
                         <div
                           className={`grid h-10 w-10 place-items-center rounded-lg ${
                             isPrimary
@@ -212,7 +212,7 @@ function ArchitecturePage() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <pre className="mt-12 overflow-x-auto rounded-xl border border-white/10 bg-black/40 p-5 text-[12px] leading-relaxed text-white/80 sm:text-sm">
+              <pre className="mt-12 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur text-[12px] leading-relaxed text-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white/[0.05] hover:shadow-xl hover:shadow-primary/10 sm:text-sm">
                 <code>{`Field sensors  →  Raspberry Pi  →  FastAPI  →  MongoDB / Milvus / PostgreSQL
                                             │
                                             ▼
@@ -251,7 +251,7 @@ function ArchitecturePage() {
                 const isPrimary = a.accent === "primary";
                 return (
                   <Reveal key={a.name} delay={0.05 * i}>
-                    <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+                    <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
                       <div
                         className={`absolute inset-x-0 top-0 h-0.5 ${
                           isPrimary ? "bg-primary" : "bg-sky"
@@ -326,7 +326,7 @@ function ArchitecturePage() {
             </Reveal>
             <Reveal delay={0.1}>
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
-                <div className="rounded-2xl border border-border bg-card p-6">
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
                   <p className="text-xs font-semibold uppercase tracking-wider text-sky">
                     {t("arch.os.license.label")}
                   </p>
@@ -337,7 +337,7 @@ function ArchitecturePage() {
                     {t("arch.os.license.desc")}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-border bg-card p-6">
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
                   <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                     {t("arch.os.cost.label")}
                   </p>
@@ -382,7 +382,7 @@ function ArchitecturePage() {
             </Reveal>
             <Reveal delay={0.1}>
               <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-                <Button asChild size="xl">
+                <Button asChild variant="hero" size="xl">
                   <a
                     href="https://github.com/deep-farm"
                     target="_blank"
@@ -392,7 +392,7 @@ function ArchitecturePage() {
                     GitHub
                   </a>
                 </Button>
-                <Button asChild variant="outline" size="xl" className="border-white/30 bg-white/5 text-white hover:bg-white hover:text-ink">
+                <Button asChild variant="heroGhost" size="xl">
                   <Link to="/" hash="contact">
                     <Mail className="h-4 w-4" />
                     {t("arch.cta.contact")}
