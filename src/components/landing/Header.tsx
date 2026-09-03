@@ -4,6 +4,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { useI18n, type Locale } from "@/lib/i18n";
 import { navByPath, defaultNavLinks } from "@/config/nav";
+import { useAuth } from "@/lib/auth";
 
 export function Header() {
   const location = useLocation();
@@ -13,6 +14,12 @@ export function Header() {
   const [scrolled, setScrolled] = useState(!isHome);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { locale, setLocale, t } = useI18n();
+  const { estConnecte } = useAuth();
+
+  // Signed in, the primary action is the workspace, not the sign-in form.
+  const compte = estConnecte
+    ? { to: "/app/chat", key: "header.workspace" }
+    : { to: "/login", key: "header.signin" };
 
   useEffect(() => {
     if (!isHome) {
@@ -96,10 +103,12 @@ export function Header() {
                 : "border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 hover:text-white"
             }`}
           >
-            <Link to="/login">{t("header.signin")}</Link>
+            <Link to={compte.to}>{t(compte.key)}</Link>
           </Button>
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <Link to="/" hash="contact">{t("nav.contact")}</Link>
+            <Link to="/" hash="contact">
+              {t("nav.contact")}
+            </Link>
           </Button>
           <button
             className={`lg:hidden p-2 transition-colors ${
@@ -127,8 +136,8 @@ export function Header() {
               </a>
             ))}
             <Button asChild variant="outline" className="mt-2">
-              <Link to="/login" onClick={() => setMobileOpen(false)}>
-                {t("header.signin")}
+              <Link to={compte.to} onClick={() => setMobileOpen(false)}>
+                {t(compte.key)}
               </Link>
             </Button>
             <Button asChild className="mt-2">

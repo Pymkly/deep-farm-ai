@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
 export type Locale = "en" | "fr";
 
@@ -27,6 +21,7 @@ const en: Dict = {
   "nav.arch.decisions": "Trade-offs",
   "nav.arch.opensource": "Open source",
   "header.signin": "Sign in",
+  "header.workspace": "My workspace",
 
   // Announcement bar
   "announcement.text":
@@ -65,8 +60,7 @@ const en: Dict = {
     "“30% of rice losses in sub-Saharan Africa are due to diseases and environmental stress.”",
   "challenge.quoteSource": "FAO · 2023",
   "challenge.statLabel": "National rice yield",
-  "challenge.imageAlt":
-    "A Malagasy rice farmer in his paddy holding a smartphone",
+  "challenge.imageAlt": "A Malagasy rice farmer in his paddy holding a smartphone",
 
   // Key Figures
   "figures.eyebrow": "By the numbers",
@@ -76,16 +70,14 @@ const en: Dict = {
 
   // Solution
   "solution.eyebrow": "Our Solution",
-  "solution.title":
-    "Three layers, one digital tutor in every farmer's pocket.",
+  "solution.title": "Three layers, one digital tutor in every farmer's pocket.",
   "solution.iot.title": "Solar IoT Stations",
   "solution.iot.p1": "12 autonomous solar stations",
   "solution.iot.p2": "68-day battery life",
   "solution.iot.p3": "NPK + water + climate sensors",
   "solution.iot.p4": "~80€ per family",
   "solution.ai.title": "Agentic AI Tutor",
-  "solution.ai.p1":
-    "4 specialized agents (Document, Image, Time Series, Weather)",
+  "solution.ai.p1": "4 specialized agents (Document, Image, Time Series, Weather)",
   "solution.ai.p2": "LangGraph orchestration",
   "solution.ai.p3": "RAG on 42,000 ANAE pages",
   "solution.ai.p4": "Open-source LLM",
@@ -106,14 +98,11 @@ const en: Dict = {
   "solar.step.cloud": "Cloud",
   "solar.step.app": "Farmer app",
   "solar.npk.name": "NPK Soil Sensor",
-  "solar.npk.detail":
-    "Measures Nitrogen, Phosphorus, Potassium in real time via RS-485 Modbus.",
+  "solar.npk.detail": "Measures Nitrogen, Phosphorus, Potassium in real time via RS-485 Modbus.",
   "solar.dht.name": "DHT22 Climate Sensor",
-  "solar.dht.detail":
-    "Tracks air temperature and humidity, key indicators of disease risk.",
+  "solar.dht.detail": "Tracks air temperature and humidity, key indicators of disease risk.",
   "solar.tl.name": "TL-136 Water Level",
-  "solar.tl.detail":
-    "Monitors irrigation depth with IP68 waterproof probe (4-20 mA output).",
+  "solar.tl.detail": "Monitors irrigation depth with IP68 waterproof probe (4-20 mA output).",
   "solar.hub.name": "Solar-powered Hub",
   "solar.hub.detail":
     "Arduino Mega + ESP-01S + Raspberry Pi. 12V solar battery, 68-day autonomy without recharge.",
@@ -125,16 +114,13 @@ const en: Dict = {
   "demo.eyebrow": "See it in action",
   "demo.title": "From a leaf photo to a sourced diagnosis in under a minute.",
   "demo.step1.title": "Capture",
-  "demo.step1.body":
-    "The farmer snaps a diseased leaf — the app works fully offline.",
+  "demo.step1.body": "The farmer snaps a diseased leaf — the app works fully offline.",
   "demo.step1.scan": "Tap to scan a leaf",
   "demo.step2.title": "Reason",
-  "demo.step2.body":
-    "Four specialized agents collaborate via LangGraph orchestration.",
+  "demo.step2.body": "Four specialized agents collaborate via LangGraph orchestration.",
   "demo.step2.active": "active",
   "demo.step3.title": "Recommend",
-  "demo.step3.body":
-    "Every recommendation is grounded in a citable local document.",
+  "demo.step3.body": "Every recommendation is grounded in a citable local document.",
   "demo.step3.confidence": "Diagnosis · 94% confidence",
   "demo.step3.disease": "Bacterial Blight",
   "demo.step3.recommendation":
@@ -159,8 +145,7 @@ const en: Dict = {
 
   // Partners
   "partners.eyebrow": "Backed by leading institutions",
-  "partners.placeholderNotice":
-    "Logo placeholders — replace with official artwork",
+  "partners.placeholderNotice": "Logo placeholders — replace with official artwork",
 
   // IOAI
   "ioai.badge": "Featured Event",
@@ -247,14 +232,12 @@ const en: Dict = {
   "arch.agents.eyebrow": "The crew",
   "arch.agents.title": "The four agents",
   "arch.agent.doc.name": "Document Agent",
-  "arch.agent.doc.detail":
-    "RAG over 42,000 ANAE pages using nomic-embed-text-v1.5 embeddings.",
+  "arch.agent.doc.detail": "RAG over 42,000 ANAE pages using nomic-embed-text-v1.5 embeddings.",
   "arch.agent.image.name": "Image Agent",
   "arch.agent.image.detail":
     "Vector similarity search using nomic-embed-vision-v1.5 (94% accuracy on rice diseases).",
   "arch.agent.timeseries.name": "Time Series Agent",
-  "arch.agent.timeseries.detail":
-    "Analyzes sensor data from MongoDB time-series collections.",
+  "arch.agent.timeseries.detail": "Analyzes sensor data from MongoDB time-series collections.",
   "arch.agent.weather.name": "Weather Agent",
   "arch.agent.weather.detail": "Connects to OpenMeteo API for forecasts.",
 
@@ -282,12 +265,10 @@ const en: Dict = {
   "arch.os.title": "Open-source & reproducible",
   "arch.os.license.label": "License",
   "arch.os.license.value": "MIT",
-  "arch.os.license.desc":
-    "Fully open-source. Fork it, ship it, adapt it to your cooperative.",
+  "arch.os.license.desc": "Fully open-source. Fork it, ship it, adapt it to your cooperative.",
   "arch.os.cost.label": "Operating cost",
   "arch.os.cost.value": "< $20 / month",
-  "arch.os.cost.desc":
-    "Less than $20 per month to run the full platform for 100 farms.",
+  "arch.os.cost.desc": "Less than $20 per month to run the full platform for 100 farms.",
   "arch.os.cta": "Browse the code on GitHub",
 
   // Architecture page — Final CTA
@@ -295,6 +276,122 @@ const en: Dict = {
   "arch.cta.intro":
     "Deep Farm is built with and for the agricultural community. Researchers, engineers, NGOs and cooperatives are all welcome.",
   "arch.cta.contact": "Contact us",
+
+  // Auth — shared
+  "auth.field.name": "Full name",
+  "auth.field.email": "Email",
+  "auth.field.password": "Password",
+  "auth.field.passwordConfirm": "Confirm password",
+  "auth.field.currentPassword": "Current password",
+  "auth.password.hint": "8 to 72 characters",
+  "auth.back": "← Back to home",
+
+  // Auth — sign in
+  "auth.signin.title": "Welcome to the Deep Farm platform",
+  "auth.signin.subtitle": "Access your sensor data, AI tutor, and farm dashboard.",
+  "auth.action.signin": "Sign in",
+  "auth.action.signingIn": "Signing in…",
+  "auth.link.forgot": "Forgot your password?",
+  "auth.forgot.notice": "Password recovery is not available yet. Contact us to reset your account.",
+  "auth.link.noAccount": "Don't have an account?",
+  "auth.link.signup": "Create one",
+
+  // Auth — sign up
+  "auth.signup.title": "Create your Deep Farm account",
+  "auth.signup.subtitle": "A few seconds, and your farm dashboard is ready.",
+  "auth.action.signup": "Create account",
+  "auth.action.signingUp": "Creating account…",
+  "auth.link.hasAccount": "Already have an account?",
+  "auth.link.signin": "Sign in",
+
+  // Auth — client-side validation
+  "auth.validation.nameRequired": "Full name is required",
+  "auth.validation.nameTooLong": "Full name must be 120 characters or less",
+  "auth.validation.emailRequired": "Email is required",
+  "auth.validation.emailInvalid": "Please enter a valid email address",
+  "auth.validation.emailTooLong": "Email must be less than 255 characters",
+  "auth.validation.passwordRequired": "Password is required",
+  "auth.validation.passwordTooShort": "Password must be at least 8 characters",
+  "auth.validation.passwordTooLong": "Password must be 72 characters or less",
+  "auth.validation.passwordMismatch": "Passwords do not match",
+
+  // Auth — server errors
+  "auth.error.credentials": "Incorrect email or password",
+  "auth.error.emailTaken": "This email is already registered",
+  "auth.error.network": "Cannot reach the server. Check that the API is running.",
+  "auth.error.generic": "Something went wrong. Please try again.",
+  "auth.error.field.email": "Please enter a valid email address",
+  "auth.error.field.mot_de_passe": "Password must be between 8 and 72 characters",
+  "auth.error.field.nom_complet": "Full name must be between 1 and 120 characters",
+  "auth.error.field.mot_de_passe_actuel": "Current password is required",
+
+  // Account page
+  "account.title": "Your account",
+  "account.subtitle": "Your Deep Farm profile and sign-in details.",
+  "account.loading": "Loading…",
+  "account.role": "Role",
+  "account.role.admin": "Administrator",
+  "account.role.utilisateur": "User",
+  "account.member": "Member since",
+  "account.profile.title": "Profile",
+  "account.profile.save": "Save changes",
+  "account.profile.saved": "Name updated",
+  "account.password.title": "Change password",
+  "account.password.save": "Update password",
+  "account.password.saved": "Password updated",
+  "account.signout": "Sign out",
+
+  // Back office shell
+  "app.shell.label": "Workspace",
+  "app.group.workspace": "Workspace",
+  "app.group.farm": "My farm",
+  "app.nav.chat": "Chat",
+  "app.nav.dashboard": "Dashboard",
+  "app.nav.plots": "Plots",
+  "app.nav.sensors": "Sensors",
+  "app.nav.alerts": "Alerts",
+  "app.nav.soon": "Soon",
+  "app.nav.account": "Account",
+  "app.nav.site": "Back to site",
+
+  // Back office — chat
+  "app.chat.greeting": "Hello",
+  "app.chat.intro":
+    "Send a photo of a leaf, ask the agronomic documentation, or check the weather on your plots. The agent picks the right specialists and chains them.",
+  "app.chat.placeholder": "Ask a question…",
+  "app.chat.placeholder.photo": "Add a question (optional)…",
+  "app.chat.send": "Send",
+  "app.chat.thinking": "The agent is thinking",
+  "app.chat.retry": "Try again",
+  "app.chat.disclaimer":
+    "The Deep Farm agent can make mistakes. Check important decisions with your advisor.",
+  "app.chat.suggestion.1": "When should I transplant my rice seedlings?",
+  "app.chat.suggestion.2": "My leaves are turning yellow — what should I check?",
+  "app.chat.suggestion.3": "How much water does my plot need this week?",
+  "app.chat.suggestion.4": "Explain the SRI method in simple terms",
+  "app.chat.waiting": "The agent is working",
+  "app.chat.waiting.long": "The models run locally — a photo diagnosis takes about thirty seconds.",
+  "app.chat.nomemory":
+    "Each question is answered on its own: the agent does not remember the previous ones.",
+  "app.chat.steps.title": "How this answer was built",
+  "app.chat.steps.partial": "One agent failed — this answer may be incomplete.",
+  "app.chat.agent.rag_image": "Photo diagnosis",
+  "app.chat.agent.rag_texte": "Agronomic documentation",
+  "app.chat.agent.meteo": "Weather",
+  "app.chat.image.add": "Attach a photo",
+  "app.chat.image.remove": "Remove the photo",
+  "app.chat.image.alt": "Attached photo",
+  "app.chat.image.hint": "JPG, PNG, WEBP or BMP · 10 MB maximum",
+  "app.chat.image.reuse": "Sent — stays attached to your next question.",
+  "app.chat.image.error.format": "Unsupported format. Use a JPG, PNG, WEBP or BMP file.",
+  "app.chat.image.error.size": "Photo too large: 10 MB maximum.",
+  "app.chat.image.error.empty": "This file is empty.",
+  "app.chat.error.generic": "The agent could not answer. Try again in a moment.",
+  "app.chat.error.session": "Your session has expired. Sign in again to carry on.",
+  "app.chat.error.busy": "Too many questions at once. Wait a few seconds and try again.",
+  "app.chat.error.timeout":
+    "The agent did not answer in time. It may still be working — try again in a moment.",
+  "app.chat.error.question": "Your question must be between 3 and 2000 characters.",
 };
 
 const fr: Dict = {
@@ -312,6 +409,7 @@ const fr: Dict = {
   "nav.arch.decisions": "Compromis",
   "nav.arch.opensource": "Open source",
   "header.signin": "Connexion",
+  "header.workspace": "Mon espace",
 
   // Announcement bar
   "announcement.text":
@@ -333,8 +431,7 @@ const fr: Dict = {
 
   // Challenge
   "challenge.eyebrow": "Le défi",
-  "challenge.title":
-    "Madagascar, autrefois autosuffisante, importe désormais son riz.",
+  "challenge.title": "Madagascar, autrefois autosuffisante, importe désormais son riz.",
   "challenge.p1.before": "Le riz représente ",
   "challenge.p1.bold": "43 % de la valeur ajoutée agricole",
   "challenge.p1.after":
@@ -351,8 +448,7 @@ const fr: Dict = {
     "« 30 % des pertes de riz en Afrique subsaharienne sont dues aux maladies et au stress environnemental. »",
   "challenge.quoteSource": "FAO · 2023",
   "challenge.statLabel": "Rendement national du riz",
-  "challenge.imageAlt":
-    "Un riziculteur malgache dans sa rizière, smartphone à la main",
+  "challenge.imageAlt": "Un riziculteur malgache dans sa rizière, smartphone à la main",
 
   // Key Figures
   "figures.eyebrow": "En chiffres",
@@ -362,16 +458,14 @@ const fr: Dict = {
 
   // Solution
   "solution.eyebrow": "Notre solution",
-  "solution.title":
-    "Trois couches, un tuteur numérique dans la poche de chaque riziculteur.",
+  "solution.title": "Trois couches, un tuteur numérique dans la poche de chaque riziculteur.",
   "solution.iot.title": "Stations IoT solaires",
   "solution.iot.p1": "12 stations solaires autonomes",
   "solution.iot.p2": "68 jours d'autonomie batterie",
   "solution.iot.p3": "Capteurs NPK + eau + climat",
   "solution.iot.p4": "~80 € par famille",
   "solution.ai.title": "Tuteur IA agentique",
-  "solution.ai.p1":
-    "4 agents spécialisés (Document, Image, Séries temporelles, Météo)",
+  "solution.ai.p1": "4 agents spécialisés (Document, Image, Séries temporelles, Météo)",
   "solution.ai.p2": "Orchestration LangGraph",
   "solution.ai.p3": "RAG sur 42 000 pages ANAE",
   "solution.ai.p4": "LLM open-source",
@@ -392,8 +486,7 @@ const fr: Dict = {
   "solar.step.cloud": "Cloud",
   "solar.step.app": "App riziculteur",
   "solar.npk.name": "Capteur de sol NPK",
-  "solar.npk.detail":
-    "Mesure Azote, Phosphore, Potassium en temps réel via RS-485 Modbus.",
+  "solar.npk.detail": "Mesure Azote, Phosphore, Potassium en temps réel via RS-485 Modbus.",
   "solar.dht.name": "Capteur climat DHT22",
   "solar.dht.detail":
     "Suit la température et l'humidité de l'air, indicateurs clés du risque maladie.",
@@ -409,19 +502,16 @@ const fr: Dict = {
 
   // Demo
   "demo.eyebrow": "En action",
-  "demo.title":
-    "D'une photo de feuille à un diagnostic sourcé en moins d'une minute.",
+  "demo.title": "D'une photo de feuille à un diagnostic sourcé en moins d'une minute.",
   "demo.step1.title": "Capturer",
   "demo.step1.body":
     "Le riziculteur photographie une feuille malade — l'app fonctionne entièrement hors-ligne.",
   "demo.step1.scan": "Toucher pour scanner une feuille",
   "demo.step2.title": "Raisonner",
-  "demo.step2.body":
-    "Quatre agents spécialisés collaborent via l'orchestration LangGraph.",
+  "demo.step2.body": "Quatre agents spécialisés collaborent via l'orchestration LangGraph.",
   "demo.step2.active": "actif",
   "demo.step3.title": "Recommander",
-  "demo.step3.body":
-    "Chaque recommandation s'appuie sur un document local citable.",
+  "demo.step3.body": "Chaque recommandation s'appuie sur un document local citable.",
   "demo.step3.confidence": "Diagnostic · 94 % de confiance",
   "demo.step3.disease": "Brûlure bactérienne",
   "demo.step3.recommendation":
@@ -435,8 +525,7 @@ const fr: Dict = {
 
   // Pilot Farm
   "pilot.eyebrow": "Ferme pilote",
-  "pilot.title":
-    "En direct de notre ferme pilote à Iarinarivo, Madagascar.",
+  "pilot.title": "En direct de notre ferme pilote à Iarinarivo, Madagascar.",
   "pilot.body":
     "Douze stations IoT solaires diffusent les données NPK, niveau d'eau et microclimat toutes les quinze minutes — le tout alimente le même système agentique que les riziculteurs interrogent depuis leur téléphone.",
   "pilot.stat.plots": "parcelles suivies",
@@ -447,8 +536,7 @@ const fr: Dict = {
 
   // Partners
   "partners.eyebrow": "Soutenu par des institutions de référence",
-  "partners.placeholderNotice":
-    "Logos provisoires — à remplacer par les visuels officiels",
+  "partners.placeholderNotice": "Logos provisoires — à remplacer par les visuels officiels",
 
   // IOAI
   "ioai.badge": "Événement à la une",
@@ -535,8 +623,7 @@ const fr: Dict = {
   "arch.agents.eyebrow": "L'équipe",
   "arch.agents.title": "Les quatre agents",
   "arch.agent.doc.name": "Agent Documents",
-  "arch.agent.doc.detail":
-    "RAG sur 42 000 pages ANAE via les embeddings nomic-embed-text-v1.5.",
+  "arch.agent.doc.detail": "RAG sur 42 000 pages ANAE via les embeddings nomic-embed-text-v1.5.",
   "arch.agent.image.name": "Agent Images",
   "arch.agent.image.detail":
     "Recherche par similarité vectorielle via nomic-embed-vision-v1.5 (94 % de précision sur les maladies du riz).",
@@ -544,14 +631,12 @@ const fr: Dict = {
   "arch.agent.timeseries.detail":
     "Analyse les données capteurs depuis les collections time-series MongoDB.",
   "arch.agent.weather.name": "Agent Météo",
-  "arch.agent.weather.detail":
-    "Se connecte à l'API OpenMeteo pour les prévisions.",
+  "arch.agent.weather.detail": "Se connecte à l'API OpenMeteo pour les prévisions.",
 
   // Architecture page — Decisions
   "arch.decisions.eyebrow": "Compromis",
   "arch.decisions.title": "Pourquoi ces choix technologiques ?",
-  "arch.decision.cnn.q":
-    "Pourquoi la recherche vectorielle plutôt qu'une classification CNN ?",
+  "arch.decision.cnn.q": "Pourquoi la recherche vectorielle plutôt qu'une classification CNN ?",
   "arch.decision.cnn.a":
     "Un CNN finetuné enferme le modèle dans un ensemble fermé de classes et impose un ré-entraînement à chaque nouvelle maladie. La similarité vectorielle sur un index d'embeddings nous permet d'ajouter de nouvelles images de référence à la volée, de retourner des cas similaires classés et d'expliquer les résultats — plus proche de la façon dont un agronome raisonne.",
   "arch.decision.langgraph.q": "Pourquoi LangGraph pour l'orchestration ?",
@@ -572,8 +657,7 @@ const fr: Dict = {
   "arch.os.title": "Open-source & reproductible",
   "arch.os.license.label": "Licence",
   "arch.os.license.value": "MIT",
-  "arch.os.license.desc":
-    "Entièrement open-source. Forke, déploie, adapte-le à ta coopérative.",
+  "arch.os.license.desc": "Entièrement open-source. Forke, déploie, adapte-le à ta coopérative.",
   "arch.os.cost.label": "Coût d'exploitation",
   "arch.os.cost.value": "< 20 $ / mois",
   "arch.os.cost.desc":
@@ -585,6 +669,125 @@ const fr: Dict = {
   "arch.cta.intro":
     "Deep Farm est construit avec et pour la communauté agricole. Chercheurs, ingénieurs, ONG et coopératives sont les bienvenus.",
   "arch.cta.contact": "Nous contacter",
+
+  // Auth — commun
+  "auth.field.name": "Nom complet",
+  "auth.field.email": "Email",
+  "auth.field.password": "Mot de passe",
+  "auth.field.passwordConfirm": "Confirmer le mot de passe",
+  "auth.field.currentPassword": "Mot de passe actuel",
+  "auth.password.hint": "8 à 72 caractères",
+  "auth.back": "← Retour à l'accueil",
+
+  // Auth — connexion
+  "auth.signin.title": "Bienvenue sur la plateforme Deep Farm",
+  "auth.signin.subtitle":
+    "Accédez à vos données de capteurs, au tuteur IA et à votre tableau de bord.",
+  "auth.action.signin": "Se connecter",
+  "auth.action.signingIn": "Connexion…",
+  "auth.link.forgot": "Mot de passe oublié ?",
+  "auth.forgot.notice":
+    "La récupération de mot de passe n'est pas encore disponible. Contactez-nous pour réinitialiser votre compte.",
+  "auth.link.noAccount": "Pas encore de compte ?",
+  "auth.link.signup": "Créer un compte",
+
+  // Auth — inscription
+  "auth.signup.title": "Créez votre compte Deep Farm",
+  "auth.signup.subtitle": "Quelques secondes, et votre tableau de bord est prêt.",
+  "auth.action.signup": "Créer mon compte",
+  "auth.action.signingUp": "Création…",
+  "auth.link.hasAccount": "Vous avez déjà un compte ?",
+  "auth.link.signin": "Se connecter",
+
+  // Auth — validation côté client
+  "auth.validation.nameRequired": "Le nom complet est requis",
+  "auth.validation.nameTooLong": "Le nom complet ne doit pas dépasser 120 caractères",
+  "auth.validation.emailRequired": "L'email est requis",
+  "auth.validation.emailInvalid": "Veuillez saisir une adresse email valide",
+  "auth.validation.emailTooLong": "L'email ne doit pas dépasser 255 caractères",
+  "auth.validation.passwordRequired": "Le mot de passe est requis",
+  "auth.validation.passwordTooShort": "Le mot de passe doit faire au moins 8 caractères",
+  "auth.validation.passwordTooLong": "Le mot de passe ne doit pas dépasser 72 caractères",
+  "auth.validation.passwordMismatch": "Les mots de passe ne correspondent pas",
+
+  // Auth — erreurs serveur
+  "auth.error.credentials": "Email ou mot de passe incorrect",
+  "auth.error.emailTaken": "Cet email est déjà utilisé",
+  "auth.error.network": "Serveur injoignable. Vérifiez que l'API est démarrée.",
+  "auth.error.generic": "Une erreur est survenue. Veuillez réessayer.",
+  "auth.error.field.email": "Veuillez saisir une adresse email valide",
+  "auth.error.field.mot_de_passe": "Le mot de passe doit faire entre 8 et 72 caractères",
+  "auth.error.field.nom_complet": "Le nom complet doit faire entre 1 et 120 caractères",
+  "auth.error.field.mot_de_passe_actuel": "Le mot de passe actuel est requis",
+
+  // Page compte
+  "account.title": "Votre compte",
+  "account.subtitle": "Votre profil Deep Farm et vos identifiants.",
+  "account.loading": "Chargement…",
+  "account.role": "Rôle",
+  "account.role.admin": "Administrateur",
+  "account.role.utilisateur": "Utilisateur",
+  "account.member": "Membre depuis",
+  "account.profile.title": "Profil",
+  "account.profile.save": "Enregistrer",
+  "account.profile.saved": "Nom mis à jour",
+  "account.password.title": "Changer de mot de passe",
+  "account.password.save": "Mettre à jour",
+  "account.password.saved": "Mot de passe mis à jour",
+  "account.signout": "Se déconnecter",
+
+  // Back office — coquille
+  "app.shell.label": "Espace de travail",
+  "app.group.workspace": "Espace de travail",
+  "app.group.farm": "Mon exploitation",
+  "app.nav.chat": "Chat",
+  "app.nav.dashboard": "Tableau de bord",
+  "app.nav.plots": "Parcelles",
+  "app.nav.sensors": "Capteurs",
+  "app.nav.alerts": "Alertes",
+  "app.nav.soon": "Bientôt",
+  "app.nav.account": "Mon compte",
+  "app.nav.site": "Retour au site",
+
+  // Back office — chat
+  "app.chat.greeting": "Bonjour",
+  "app.chat.intro":
+    "Envoyez une photo de feuille, interrogez la documentation agronomique ou la météo de vos parcelles. L’agent choisit les spécialistes et les enchaîne.",
+  "app.chat.placeholder": "Posez votre question…",
+  "app.chat.placeholder.photo": "Ajoutez une question (facultatif)…",
+  "app.chat.send": "Envoyer",
+  "app.chat.thinking": "L’agent réfléchit",
+  "app.chat.retry": "Réessayer",
+  "app.chat.disclaimer":
+    "L’agent Deep Farm peut se tromper. Vérifiez les décisions importantes avec votre conseiller.",
+  "app.chat.suggestion.1": "Quand dois-je repiquer mes plants de riz ?",
+  "app.chat.suggestion.2": "Mes feuilles jaunissent — que dois-je vérifier ?",
+  "app.chat.suggestion.3": "De combien d’eau ma parcelle a-t-elle besoin cette semaine ?",
+  "app.chat.suggestion.4": "Explique-moi la méthode SRI simplement",
+  "app.chat.waiting": "L’agent travaille",
+  "app.chat.waiting.long":
+    "Les modèles tournent en local — un diagnostic photo prend une trentaine de secondes.",
+  "app.chat.nomemory":
+    "Chaque question est traitée seule : l’agent ne se souvient pas des précédentes.",
+  "app.chat.steps.title": "Comment cette réponse a été construite",
+  "app.chat.steps.partial": "Un agent a échoué — cette réponse peut être incomplète.",
+  "app.chat.agent.rag_image": "Diagnostic photo",
+  "app.chat.agent.rag_texte": "Documentation agronomique",
+  "app.chat.agent.meteo": "Météo",
+  "app.chat.image.add": "Joindre une photo",
+  "app.chat.image.remove": "Retirer la photo",
+  "app.chat.image.alt": "Photo jointe",
+  "app.chat.image.hint": "JPG, PNG, WEBP ou BMP · 10 Mo maximum",
+  "app.chat.image.reuse": "Envoyée — reste jointe à votre prochaine question.",
+  "app.chat.image.error.format": "Format non accepté. Utilisez un fichier JPG, PNG, WEBP ou BMP.",
+  "app.chat.image.error.size": "Photo trop lourde : 10 Mo maximum.",
+  "app.chat.image.error.empty": "Ce fichier est vide.",
+  "app.chat.error.generic": "L’agent n’a pas pu répondre. Réessayez dans un instant.",
+  "app.chat.error.session": "Votre session a expiré. Reconnectez-vous pour poursuivre.",
+  "app.chat.error.busy": "Trop de questions d’un coup. Patientez quelques secondes puis réessayez.",
+  "app.chat.error.timeout":
+    "L’agent n’a pas répondu à temps. Il travaille peut-être encore : réessayez dans un instant.",
+  "app.chat.error.question": "Votre question doit faire entre 3 et 2000 caractères.",
 };
 
 const DICTS: Record<Locale, Dict> = { en, fr };
@@ -624,11 +827,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const setLocale = (l: Locale) => setLocaleState(l);
   const t = (key: string) => DICTS[locale][key] ?? DICTS.en[key] ?? key;
 
-  return (
-    <I18nContext.Provider value={{ locale, setLocale, t }}>
-      {children}
-    </I18nContext.Provider>
-  );
+  return <I18nContext.Provider value={{ locale, setLocale, t }}>{children}</I18nContext.Provider>;
 }
 
 export const useI18n = () => useContext(I18nContext);
